@@ -1,21 +1,25 @@
 package org.umssdiplo.automationv01.stepdefinitionproject;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import org.umssdiplo.automationv01.core.managepage.Login.Login;
+import org.umssdiplo.automationv01.core.managepage.Login.SSIService;
 import org.umssdiplo.automationv01.core.utils.LoadPage;
 
 public class StepsDefinitionPHPtravel {
-    private Login login;
+    private SSIService ssiService;
 
-    @Given("^'PHP travel' page is loaded$")
+    @Given("^'SisSecurity' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
-        login = LoadPage.loginPage();
+        ssiService = LoadPage.loginPage();
     }
 
-    @And("^set my credentials on 'Login' page$")
-    public void setMyCredentialsOnLoginPage() throws Throwable {
-        login.setCredentials();
+//    @And("^set my credentials on 'Login' page$")
+//    public void setMyCredentialsOnLoginPage() throws Throwable {
+//        ssiService.setCredentials();
+//    }
+
+    @And("^click 'Registrar Maquinaria' tab in 'Header' page$")
+    public void clickRegistrarMaquinariaTabInHeaderPage() throws Throwable {
+        ssiService.clickRegistrarMaquinariTab();
     }
 }
