@@ -5,9 +5,7 @@ Feature: Funcionalidad de Incidentes
   @bvt
   Scenario: Create
     Given 'SisSecurity' page is loaded
-    And click 'Registrar Maquinaria' tab in 'Header' page
-    //veriffication
-    Then verificar que
+#    And click 'Registrar Maquinaria' tab in 'Header' page
 
   @ABC
   Scenario: Edit
@@ -18,6 +16,9 @@ Feature: Funcionalidad de Incidentes
   Scenario Outline: Create
     And fill "<Nombre Maquinaria>" nombre maquinaria campo en 'Formulario Maquina' form
     Then verificar que "<Nombre Maquinaria>" esta desplago en 'Lista de Maquinarias' tabla
+    Then verificar que "<Nombre Maquinaria>" esta desplago en 'Lista de Maquinarias' tabla
+
+    And fill 'Form Registrar Maquinaria' from json data "Scenario 2" en 'Formulario Maquina' form
 
     Examples:
       | Nombre Maquinaria      | Nombre Maquinaria3      | Nombre Maquinaria2      |

@@ -2,7 +2,7 @@ import net.masterthought.cucumber.Configuration
 import net.masterthought.cucumber.ReportBuilder
 
 group 'org.umssdiplo.automationv01'
-version '1.0-SNAPSHOT'
+version '1.0.1'
 
 apply plugin: 'java'
 

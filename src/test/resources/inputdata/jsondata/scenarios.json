@@ -1,0 +1,10 @@
+{
+  "Scenario 1" :{
+    "Name" : "test1",
+    "LastName" : "last test1"
+  },
+  "Scenario 2" :{
+    "Name" : "test1",
+    "LastName" : "last test1"
+  }
+}

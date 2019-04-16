@@ -34,8 +34,14 @@ public class StepsDefinitionPHPtravel {
 
     @Then("^verificar que \"([^\"]*)\" esta desplago en 'Lista de Maquinarias' tabla$")
     public void verificarQueEstaDesplagoEnListaDeMaquinariasTabla(String nombreMaquinariaExperado) throws Throwable {
-        String nombreMaquinariaActual = nombreObjectoTable.getNombreTableInsertada();
+//        String nombreMaquinariaActual = nombreObjectoTable.getNombreTableInsertada();
+//
+//        Assert.assertEquals(nombreMaquinariaActual, nombreMaquinariaExperado);
+    }
 
-        Assert.assertEquals(nombreMaquinariaActual, nombreMaquinariaExperado);
+    @And("^fill 'Form Registrar Maquinaria' from json data \"([^\"]*)\" en 'Formulario Maquina' form$")
+    public void fillFormRegistrarMaquinariaFromJsonDataEnFormularioMaquinaForm(String arg0) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 }
