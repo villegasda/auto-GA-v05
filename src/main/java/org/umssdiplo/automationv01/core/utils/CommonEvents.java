@@ -36,6 +36,14 @@ public class CommonEvents {
         ManageDriver.getInstance().getWebDriver().findElement(by).click();
     }
 
+    public static void forceWait(int milliseconds){
+        try{
+            Thread.sleep(milliseconds);
+        }catch (Exception e){
+            e.fillInStackTrace();
+        }
+    }
+
 
 
     /**

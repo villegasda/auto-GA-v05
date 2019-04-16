@@ -4,27 +4,26 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.testng.Assert;
-import org.umssdiplo.automationv01.core.managepage.Login.SSIService;
+import org.umssdiplo.automationv01.core.managepage.Login.Login;
 import org.umssdiplo.automationv01.core.utils.LoadPage;
 
 public class StepsDefinitionPHPtravel {
-    private SSIService ssiService;
+    private Login login;
 
     @Given("^'SisSecurity' page is loaded$")
     public void phpTravelPageIsLoaded() throws Throwable {
-        ssiService = LoadPage.loginPage();
+        login = LoadPage.loginPage();
     }
 
     @And("^set my credentials on 'Login' page$")
     public void setMyCredentialsOnLoginPage() throws Throwable {
-        ssiService.setCredentials();
-        ssiService.eliminarRegistro("abc");
+        login.setCredentials();
+        login.eliminarRegistro("abc");
     }
 
     @And("^click 'Registrar Maquinaria' tab in 'Header' page$")
     public void clickRegistrarMaquinariaTabInHeaderPage() throws Throwable {
-//        ssiService.clickRegistrarMaquinariTab();
+//        login.clickRegistrarMaquinariTab();
     }
 
     @And("^fill \"([^\"]*)\" nombre maquinaria campo en 'Formulario Maquina' form$")

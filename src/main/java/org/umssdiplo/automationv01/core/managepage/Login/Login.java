@@ -1,5 +1,6 @@
 package org.umssdiplo.automationv01.core.managepage.Login;
 
+import cucumber.api.DataTable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +10,7 @@ import org.umssdiplo.automationv01.core.utils.PropertyAccessor;
 
 //import static org.umssdiplo.automationv01.core.utils.c.*;
 
-public class SSIService extends BasePage {
+public class Login extends BasePage {
     public static final String MYPATH_INPUT_CONTAINS_TEXT_S = "//mypath/input[contains(text(), '%s')]";
     //    @FindBy(name = "email")
     @FindBy(xpath = "//input[@type='text']")
@@ -27,6 +28,9 @@ public class SSIService extends BasePage {
     @FindBy(xpath = "")
     private WebElement elementoSelect;
 
+    @FindBy(id = "aaaa")
+    private WebElement crearProductBtn;
+
     public void setCredentials() {
         String username = PropertyAccessor.getInstance().getUser();
         String password = PropertyAccessor.getInstance().getPassword();
@@ -40,6 +44,14 @@ public class SSIService extends BasePage {
 
         By by = By.xpath(String.format(MYPATH_INPUT_CONTAINS_TEXT_S, abc));
         CommonEvents.clickElement(by);
+    }
+
+    public Login setProductsWithDataTables() {
+        CommonEvents.clickButton(crearProductBtn);
+        CommonEvents.forceWait(1000);
+
+        return this;
+
     }
 
 //    public RegistrarMarquinaria clickRegistrarMaquinariTab() {
