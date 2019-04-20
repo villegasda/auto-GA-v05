@@ -10,7 +10,8 @@ public class PropertyAccessor {
     private static final String BASE_URL = "baseurl";
     private static final String USER_NAME = "username";
     private static final String PASSWORD = "password";
-    private static final String BASE_URI = "postman.baseuri";
+    private static final String BASE_URI = "baseuri";
+    private static final String BASE_URL_LOGIN = "baseurl.login";
 
     private static PropertyAccessor PropertyAccessor;
     private Properties properties;
@@ -68,5 +69,9 @@ public class PropertyAccessor {
 
     public String getBaseUri() {
         return getDataProperty(BASE_URI);
+    }
+
+    public String getBaseUrlLogin() {
+        return getDataProperty(BASE_URL_LOGIN);
     }
 }

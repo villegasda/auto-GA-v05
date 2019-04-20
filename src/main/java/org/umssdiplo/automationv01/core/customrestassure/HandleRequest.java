@@ -16,18 +16,17 @@ import static io.restassured.RestAssured.given;
  */
 public class HandleRequest {
 
-    private static RequestSpecification REQUEST = PostmanEcho.getInstance().getRequestSpecification(); // .getRequestSpecification();
+    private static RequestSpecification REQUEST = Credify.getInstance().getRequestSpecification(); // .getRequestSpecification();
 
     /**
      * Build the Get method request
      *
-     * @param endPoint route of the get end point.
      * @return the response body
      */
-    public static Response get(final String endPoint) throws UnsupportedEncodingException, CloneNotSupportedException, NoSuchAlgorithmException {
-        return given().spec(REQUEST).log().all()
-                .when().log().all()
-                .get(endPoint);
+    public static Response get() throws UnsupportedEncodingException, CloneNotSupportedException, NoSuchAlgorithmException {
+        return given().spec(REQUEST)
+                .when()
+                .get();
     }
 
     /**

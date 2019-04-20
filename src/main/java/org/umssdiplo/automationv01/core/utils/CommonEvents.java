@@ -5,8 +5,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.List;
 
 public class CommonEvents {
@@ -17,7 +20,7 @@ public class CommonEvents {
      * @param webElement Is web element.
      * @param content    Is the content that will be set to the web element.
      */
-    public static void setInputField(WebElement webElement, String content) {
+    public static void fillInputField(WebElement webElement, String content) {
         ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
         webElement.clear();
         webElement.sendKeys(content);
@@ -28,7 +31,7 @@ public class CommonEvents {
      *
      * @param webElement Is the web element that will be pressed.
      */
-    public static void clickButton(WebElement webElement) {
+    public static void clickWebElement(WebElement webElement) {
         ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.elementToBeClickable(webElement));
         webElement.click();
     }
@@ -116,4 +119,33 @@ public class CommonEvents {
         webElement.sendKeys(Keys.ENTER);
     }
 
+    public static void chooseDropDownByTextVisible(WebElement webElement, String value) {
+        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
+        Select selectField = new Select(webElement);
+        selectField.selectByVisibleText(value);
+    }
+
+    public static void waitWebElementClickable(WebElement webElement) {
+        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.elementToBeClickable(webElement));
+    }
+
+    /**
+     * Force to wait a time in millisecond, try not to use it.
+     *
+     * @param timeMilliSeconds timeout in milliseconds to generate a loop
+     */
+    public static void forceWait(int timeMilliSeconds) {
+        try {
+            //logger.info(FORCE_WAIT, timeMilliSeconds);
+            Thread.sleep(timeMilliSeconds);
+        } catch (InterruptedException e) {
+            StringWriter errors = new StringWriter();
+            e.printStackTrace(new PrintWriter(errors));
+            //logger.debug(Event.class.getSimpleName().concat("-noUseThisWait [method]- Exception Error:").concat(errors.toString()));
+        }
+    }
+
+    public static void waitWebElementIsVisible(WebElement webElement) {
+        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(webElement));
+    }
 }
