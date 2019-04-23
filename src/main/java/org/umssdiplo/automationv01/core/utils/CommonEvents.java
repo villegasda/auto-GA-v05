@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.umssdiplo.automationv01.core.customwebdriver.ManageDriver;
 
@@ -114,6 +115,28 @@ public class CommonEvents {
      */
     public static void pressEnterKey(WebElement webElement) {
         webElement.sendKeys(Keys.ENTER);
+    }
+    /**
+     * This method press enter key to web element.
+     *
+     * @param webElement is the WebElement.
+     */
+    public static void hoverMenus(WebElement webElement) {
+        Actions action = new Actions(ManageDriver.getInstance().getWebDriver());
+        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.elementToBeClickable(webElement));
+        action.moveToElement(webElement).perform();
+    }
+
+    public static void forceWait(int milliseconds){
+        try{
+            Thread.sleep(milliseconds);
+        }catch (Exception e){
+            e.fillInStackTrace();
+        }
+    }
+
+    public static void waitLoadVisible(WebElement menuElement) {
+        ManageDriver.getInstance().getWebDriverWait().until(ExpectedConditions.visibilityOf(menuElement));
     }
 
 }
